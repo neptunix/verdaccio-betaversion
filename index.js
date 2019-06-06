@@ -34,7 +34,7 @@ class BetaVersionPlugin {
       this.logger.warn(
         `BetaVersion: No base permission to publish for ${
           name ? name : "anonymous"
-        }`
+        } and package: ${pkg.name}:${pkg.version}`
       );
       if (this.config[action]) {
         // Allow beta packages
@@ -47,7 +47,7 @@ class BetaVersionPlugin {
               groups.includes(group) &&
               RegExp(item[group]).test(pkg.version)
             ) {
-              this.logger.info(
+              this.logger.warn(
                 `BetaVersion: ${action} allowed for ${group}/${
                   name ? name : "anonymous"
                 } and package ${pkg.name}:${pkg.version}`
@@ -56,10 +56,14 @@ class BetaVersionPlugin {
             }
           }
         }
+        this.logger.warn(
+          `BetaVersion: no package version match found for action ${action}`
+        );
+      } else {
+        this.logger.warn(
+          `BetaVersion: skipped check. No action ${action} configuration found`
+        );
       }
-      this.logger.warn(
-        `BetaVersion: skipped check. No action ${action} configuration found`
-      );
 
       if (name) {
         callback(
@@ -87,8 +91,7 @@ class BetaVersionPlugin {
   }
   allow_unpublish(user, pkg, callback) {
     const action = "unpublish";
-    const hasSupport =
-      _lodash.default.isNil(pkg[action]) === false ? pkg[action] : false;
+    const hasSupport = pkg[action] ? pkg[action] : false;
 
     if (hasSupport === false) {
       return callback(null, undefined);
