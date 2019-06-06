@@ -1,11 +1,20 @@
 {
   "name": "verdaccio-betaversion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Verdaccio Plugin to allow access/publish npm modules based on a package version",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/neptunix/verdaccio-betaversion"
+  },
+  "keywords": [
+    "verdaccio",
+    "plugin",
+    "version"
+  ],
   "author": "Dmitry Brigadirov",
   "license": "MIT",
   "dependencies": {
