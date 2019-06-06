@@ -1,0 +1,14 @@
+{
+  "name": "verdaccio-betaversion",
+  "version": "1.0.0",
+  "description": "Verdaccio Plugin to allow access/publish npm modules based on a package version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dmitry Brigadirov",
+  "license": "MIT",
+  "dependencies": {
+    "http-errors": "^1.7.2"
+  }
+}
