@@ -15,7 +15,11 @@ In order to use the plugin the basic configuration is required. You must specify
 # config.yaml
 
 auth:
-  betaversion: { publish: [ { '$authenticated': '^.*-beta.*$'}], access: [ { 'user1': '^.*-user1.*$'} ] }
+  betaversion:
+    publish:
+    - $authenticated: '^.*-beta.*$'
+    access:
+    - user1: '^.*-user1.*$'
   htpasswd:
     file: ./htpasswd
   # Any other authentication plugins

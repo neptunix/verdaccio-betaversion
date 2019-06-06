@@ -1,6 +1,6 @@
 {
   "name": "verdaccio-betaversion",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Verdaccio Plugin to allow access/publish npm modules based on a package version",
   "main": "index.js",
   "scripts": {
@@ -21,3 +21,4 @@
     "http-errors": "^1.7.2"
   }
 }
+
